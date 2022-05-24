@@ -1,3 +1,4 @@
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -24,10 +25,14 @@ MENU = {
     }
 }
 
+
 def is_resource_sufficient(order_ingredients):
     for item in order_ingredients:
-        order_ingredients[item] >= resources[item]
-        
+        if order_ingredients[item] >= resources[item]:
+            print(f"Sorry there is not enough {item}.")
+            return False
+    return True
+
 
 profit = 0
 resources = {
